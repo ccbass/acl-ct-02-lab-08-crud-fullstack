@@ -27,3 +27,21 @@ CREATE TABLE coffee_orders (
     REFERENCES customers(customer_id)
 );
 
+
+
+INSERT INTO customers(customer_name, customer_address)
+    VALUES
+        ('John Smith', '123 Wallaby Way'),
+        ('Dwayne Johnson', '100 You Are Wrong Drive'),
+        ('April Jones', '552 Maybe Not Lane');
+
+
+INSERT INTO coffee_orders(coffee_type, quantity, order_date, subscription, linked_customer_id) VALUES
+    ('Ethopian', 5, DEFAULT, 2, 1),
+    ('Honduras', 10, DEFAULT, 3, 1),
+    ('Brazil', 15, DEFAULT, 4, 2),
+    ('Colombian', 20, DEFAULT, 2, 2),
+    ('Indonesia', 30, DEFAULT, 9, 2),
+    ('Mexico', 35, DEFAULT, 7, 3),
+    ('Peru', 40, DEFAULT, 6, 3),
+    ('Haitian', 45, DEFAULT, 12, 3);
