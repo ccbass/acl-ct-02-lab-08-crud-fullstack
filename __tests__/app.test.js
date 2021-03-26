@@ -17,72 +17,74 @@ describe('Order Router CRUD Routes', () => {
     const res = await request(app)
       .get('/api/orders')
 
-    expect(res.body).toEqual([
-      {
-          "orderId": 1,
-          "coffeeType": "Ethopian",
-          "quantity": 5,
-          "orderDate": expect.any(String),
-          "subscription": 2,
-          "customerId": 1
-      },
-      {
-          "orderId": 2,
-          "coffeeType": "Honduras",
-          "quantity": 10,
-          "orderDate": expect.any(String),
-          "subscription": 3,
-          "customerId": 1
-      },
-      {
-          "orderId": 3,
-          "coffeeType": "Brazil",
-          "quantity": 15,
-          "orderDate": expect.any(String),
-          "subscription": 4,
-          "customerId": 2
-      },
-      {
-          "orderId": 4,
-          "coffeeType": "Colombian",
-          "quantity": 20,
-          "orderDate": expect.any(String),
-          "subscription": 2,
-          "customerId": 2
-      },
-      {
-          "orderId": 5,
-          "coffeeType": "Indonesia",
-          "quantity": 30,
-          "orderDate": expect.any(String),
-          "subscription": 9,
-          "customerId": 2
-      },
-      {
-          "orderId": 6,
-          "coffeeType": "Mexico",
-          "quantity": 35,
-          "orderDate": expect.any(String),
-          "subscription": 7,
-          "customerId": 3
-      },
-      {
-          "orderId": 7,
-          "coffeeType": "Peru",
-          "quantity": 40,
-          "orderDate": expect.any(String),
-          "subscription": 6,
-          "customerId": 3
-      },
-      {
-          "orderId": 8,
-          "coffeeType": "Haitian",
-          "quantity": 45,
-          "orderDate": expect.any(String),
-          "subscription": 12,
-          "customerId": 3
-      }
-    ])
+    expect(res.body).toEqual({
+      details: "all orders in db", 
+      data: [
+        {
+            "orderId": 1,
+            "coffeeType": "Ethopian",
+            "quantity": 5,
+            "orderDate": expect.any(String),
+            "subscription": 2,
+            "customerId": 1
+        },
+        {
+            "orderId": 2,
+            "coffeeType": "Honduras",
+            "quantity": 10,
+            "orderDate": expect.any(String),
+            "subscription": 3,
+            "customerId": 1
+        },
+        {
+            "orderId": 3,
+            "coffeeType": "Brazil",
+            "quantity": 15,
+            "orderDate": expect.any(String),
+            "subscription": 4,
+            "customerId": 2
+        },
+        {
+            "orderId": 4,
+            "coffeeType": "Colombian",
+            "quantity": 20,
+            "orderDate": expect.any(String),
+            "subscription": 2,
+            "customerId": 2
+        },
+        {
+            "orderId": 5,
+            "coffeeType": "Indonesia",
+            "quantity": 30,
+            "orderDate": expect.any(String),
+            "subscription": 9,
+            "customerId": 2
+        },
+        {
+            "orderId": 6,
+            "coffeeType": "Mexico",
+            "quantity": 35,
+            "orderDate": expect.any(String),
+            "subscription": 7,
+            "customerId": 3
+        },
+        {
+            "orderId": 7,
+            "coffeeType": "Peru",
+            "quantity": 40,
+            "orderDate": expect.any(String),
+            "subscription": 6,
+            "customerId": 3
+        },
+        {
+            "orderId": 8,
+            "coffeeType": "Haitian",
+            "quantity": 45,
+            "orderDate": expect.any(String),
+            "subscription": 12,
+            "customerId": 3
+        }
+    ]})
 
   });
   
@@ -90,7 +92,9 @@ describe('Order Router CRUD Routes', () => {
     const res = await request(app)
     .get('/api/orders/customer/1')
     
-    expect(res.body).toEqual([
+    expect(res.body).toEqual({ 
+      details: "all orders for customer_id: 1", 
+      data: [
       {
           "orderId": 1,
           "coffeeType": "Ethopian",
@@ -107,7 +111,7 @@ describe('Order Router CRUD Routes', () => {
           "subscription": 3,
           "customerId": 1
       }
-    ])
+    ]})
     
   });
   
