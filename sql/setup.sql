@@ -25,5 +25,6 @@ CREATE TABLE coffee_orders (
   CONSTRAINT customer_fk
     FOREIGN KEY (linked_customer_id)
     REFERENCES customers(customer_id)
+    ON DELETE SET NULL
 );
 

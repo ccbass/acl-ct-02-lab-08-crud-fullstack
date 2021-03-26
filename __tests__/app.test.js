@@ -9,6 +9,9 @@ describe('Order Router CRUD Routes', () => {
   beforeEach(() => {
     return setupTest(pool);
   });
+  afterAll(() => {
+    return setupTest(pool);
+  });
 
   it('returns all orders in the DB', async () => {
     const res = await request(app)
@@ -19,7 +22,7 @@ describe('Order Router CRUD Routes', () => {
           "orderId": 1,
           "coffeeType": "Ethopian",
           "quantity": 5,
-          "orderDate": "2021-03-25T07:00:00.000Z",
+          "orderDate": expect.any(String),
           "subscription": 2,
           "customerId": 1
       },
@@ -27,7 +30,7 @@ describe('Order Router CRUD Routes', () => {
           "orderId": 2,
           "coffeeType": "Honduras",
           "quantity": 10,
-          "orderDate": "2021-03-25T07:00:00.000Z",
+          "orderDate": expect.any(String),
           "subscription": 3,
           "customerId": 1
       },
@@ -35,7 +38,7 @@ describe('Order Router CRUD Routes', () => {
           "orderId": 3,
           "coffeeType": "Brazil",
           "quantity": 15,
-          "orderDate": "2021-03-25T07:00:00.000Z",
+          "orderDate": expect.any(String),
           "subscription": 4,
           "customerId": 2
       },
@@ -43,7 +46,7 @@ describe('Order Router CRUD Routes', () => {
           "orderId": 4,
           "coffeeType": "Colombian",
           "quantity": 20,
-          "orderDate": "2021-03-25T07:00:00.000Z",
+          "orderDate": expect.any(String),
           "subscription": 2,
           "customerId": 2
       },
@@ -51,7 +54,7 @@ describe('Order Router CRUD Routes', () => {
           "orderId": 5,
           "coffeeType": "Indonesia",
           "quantity": 30,
-          "orderDate": "2021-03-25T07:00:00.000Z",
+          "orderDate": expect.any(String),
           "subscription": 9,
           "customerId": 2
       },
@@ -59,7 +62,7 @@ describe('Order Router CRUD Routes', () => {
           "orderId": 6,
           "coffeeType": "Mexico",
           "quantity": 35,
-          "orderDate": "2021-03-25T07:00:00.000Z",
+          "orderDate": expect.any(String),
           "subscription": 7,
           "customerId": 3
       },
@@ -67,7 +70,7 @@ describe('Order Router CRUD Routes', () => {
           "orderId": 7,
           "coffeeType": "Peru",
           "quantity": 40,
-          "orderDate": "2021-03-25T07:00:00.000Z",
+          "orderDate": expect.any(String),
           "subscription": 6,
           "customerId": 3
       },
@@ -75,7 +78,7 @@ describe('Order Router CRUD Routes', () => {
           "orderId": 8,
           "coffeeType": "Haitian",
           "quantity": 45,
-          "orderDate": "2021-03-25T07:00:00.000Z",
+          "orderDate": expect.any(String),
           "subscription": 12,
           "customerId": 3
       }
@@ -92,7 +95,7 @@ describe('Order Router CRUD Routes', () => {
           "orderId": 1,
           "coffeeType": "Ethopian",
           "quantity": 5,
-          "orderDate": "2021-03-25T07:00:00.000Z",
+          "orderDate": expect.any(String),
           "subscription": 2,
           "customerId": 1
       },
@@ -100,7 +103,7 @@ describe('Order Router CRUD Routes', () => {
           "orderId": 2,
           "coffeeType": "Honduras",
           "quantity": 10,
-          "orderDate": "2021-03-25T07:00:00.000Z",
+          "orderDate": expect.any(String),
           "subscription": 3,
           "customerId": 1
       }
@@ -125,7 +128,7 @@ describe('Order Router CRUD Routes', () => {
           "orderId": 9,
           "coffeeType": "Columbian",
           "quantity": 7,
-          "orderDate": "2021-03-25T07:00:00.000Z",
+          "orderDate": expect.any(String),
           "subscription": 3,
           "customerId": 4
       }
