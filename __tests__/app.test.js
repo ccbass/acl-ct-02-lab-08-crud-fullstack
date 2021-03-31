@@ -90,7 +90,7 @@ describe('Order Router CRUD Routes', () => {
   
   it('Returns all orders from a single customer by ID', async () => {
     const res = await request(app)
-    .get('/api/orders/customer/1')
+    .get('/api/orders/customers/1')
     
     expect(res.body).toEqual({ 
       details: "all orders for customer_id: 1", 
@@ -136,6 +136,26 @@ describe('Order Router CRUD Routes', () => {
           "subscription": 3,
           "customerId": 4
       }
+    })
+
+  });
+
+  it('PUT: updates an order and returns the updated row', async () => {
+    const res = await request(app)
+      .put('/api/orders/1')
+      .send({
+        "coffeeType": "updated coffee",
+        "quantity": 999,
+        "subscription": 5
+      })
+
+    expect(res.body).toEqual({
+          "orderId": 1,
+          "coffeeType": "updated coffee",
+          "quantity": 999,
+          "orderDate": expect.any(String),
+          "subscription": 5,
+          "customerId": 1
     })
 
   });
