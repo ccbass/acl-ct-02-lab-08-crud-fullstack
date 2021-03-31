@@ -4,14 +4,22 @@ const request = require('supertest');
 const app = require('../lib/app');
 
 
+jest.mock("../lib/utils/aws-ses", () => () => ({
+  ResponseMetadata: { RequestId: '11111111-1111' },
+  MessageId: '1111111-1111111-111111-111111'
+}) );
+
 
 describe('Order Router CRUD Routes', () => {
+
+  // Setup DB for tests before and after running
   beforeEach(() => {
     return setupTest(pool);
   });
   afterAll(() => {
     return setupTest(pool);
   });
+
 
   it('returns all orders in the DB', async () => {
     const res = await request(app)
@@ -85,9 +93,9 @@ describe('Order Router CRUD Routes', () => {
             "customerId": 3
         }
     ]})
-
   });
   
+
   it('Returns all orders from a single customer by ID', async () => {
     const res = await request(app)
     .get('/api/orders/customers/1')
@@ -112,9 +120,9 @@ describe('Order Router CRUD Routes', () => {
           "customerId": 1
       }
     ]})
-    
   });
   
+
   it('POST: creates an order and returns the data', async () => {
     const res = await request(app)
       .post('/api/orders')
@@ -140,6 +148,7 @@ describe('Order Router CRUD Routes', () => {
 
   });
 
+
   it('PUT: updates an order and returns the updated row', async () => {
     const res = await request(app)
       .put('/api/orders/1')
@@ -157,7 +166,6 @@ describe('Order Router CRUD Routes', () => {
           "subscription": 5,
           "customerId": 1
     })
-
   });
   
   
