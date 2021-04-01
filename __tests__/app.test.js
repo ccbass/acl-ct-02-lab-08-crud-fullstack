@@ -96,6 +96,23 @@ describe('Order Router CRUD Routes', () => {
   });
   
 
+  it('Returns one order by ID', async () => {
+    const res = await request(app)
+    .get('/api/orders/2')
+    
+    expect(res.body).toEqual({
+      "details": "order details for order_id:2",
+      "data": {
+          "orderId": 2,
+          "coffeeType": "Honduras",
+          "quantity": 10,
+          "orderDate": expect.any(String),
+          "subscription": 3,
+          "customerId": 1
+      }
+    })
+  });
+
   it('Returns all orders from a single customer by ID', async () => {
     const res = await request(app)
     .get('/api/orders/customers/1')
