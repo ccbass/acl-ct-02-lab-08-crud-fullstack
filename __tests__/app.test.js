@@ -184,6 +184,27 @@ describe('Order Router CRUD Routes', () => {
           "customerId": 1
     })
   });
+
+
+  it('DELETE: deletes an order and returns the row', async () => {
+    const res = await request(app)
+      .delete('/api/orders/2')
+
+    expect(res.body).toEqual({
+      "details": "deleted order for order_id:2",
+      "data": {
+          "orderId": 2,
+          "coffeeType": "Honduras",
+          "quantity": 10,
+          "orderDate": expect.any(String),
+          "subscription": 3,
+          "customerId": 1
+      }
+    })
+    let totalRows = await pool.query(`SELECT COUNT(*) FROM coffee_orders`)
+    totalRows = Number(totalRows.rows[0].count)
+    expect(totalRows).toEqual(7)
+  });
   
   
 });
