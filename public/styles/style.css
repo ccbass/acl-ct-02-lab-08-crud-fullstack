@@ -1,0 +1,14 @@
+header{
+    font-size: 2rem;
+}
+
+.main-section{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.main-section section{
+    width: 50vw;
+    background-color: blanchedalmond;
+}
