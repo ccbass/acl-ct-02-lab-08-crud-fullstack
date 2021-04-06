@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/style.css">
+    <title>Coffee Ordering App</title>
+</head>
+<body>
+
+    <header>
+        <h1>Alcoffee Lab Portal</h1>
+    </header>
+
+
+    <section class="main-section">
+
+        <section class="data-container" id="data-container">
+
+        </section>
+        
+        <section class="buttons-container">
+    
+            <form id="new-order-form">
+                <input type="number" name="quantity" placeholder="Quantity"/>
+                <input type="text" name="coffee" placeholder="Coffee"/>
+                <input type="text" name="subscription" placeholder="# of months < 12"/>
+                <input type="text" name="name" placeholder="Name" />
+                <input type="text" name="address" placeholder="Address"/>
+                <button>New Order</button>
+            </form>
+
+            <br/>
+
+            <form id="update-order-form">
+                <input type="number" name="orderId" placeholder="Order #" id="update-id"/>
+                <input type="number" name="u-quantity" placeholder="Quantity"/>
+                <input type="text" name="u-coffee" placeholder="Coffee"/>
+                <input type="text" name="u-subscription" placeholder="# of months < 12"/>
+                <button>Update Order</button>
+            </form>
+        
+            <br/>
+
+            <input type="number" id="delete-order-input" placeholder="Order # to Delete"/>
+            <button id="order-delete-btn">Delete Order</button>
+
+        </section>
+
+    </section>
+
+    
+
+    <script type="module" src="./js/index.js"></script>
+</body>
+</html>
